@@ -1,0 +1,16 @@
+extends ../shared/template
+block content
+  h2= user.email + '\'s message inbox'
+  table
+    thead
+      th from
+      th Date
+      th mssg
+    tbody
+      each message in messages
+        tr#tr(style='background-color:#{message.color};')
+          td= message.fromName
+          td= message.date
+          td: a#click(href='/users/#{user.email}/messages/#{message._id}')= message.body.slice(0, 4)
+block scripts
+  script(src='/js/user/mssg.js')

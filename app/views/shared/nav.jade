@@ -6,11 +6,15 @@
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      a.navbar-brand(href='/') Template
+      a.navbar-brand(href='/') FACEBOOK
 
     .collapse.navbar-collapse#bs-navbar-collapse
       ul.nav.navbar-nav.navbar-right
         if user
+          li: a(href='/users/#{user.email}/messages') Messages
+          li: a(href='/users') Users
+          li: a(href='/profile/edit') Edit Profile
+          li: a(href='/profile') View Profile
           li
             form.navbar-form(method='post', action='/logout')
               .form-group

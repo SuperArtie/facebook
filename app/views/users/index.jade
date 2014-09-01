@@ -1,0 +1,16 @@
+extends ../shared/template
+block content
+  h2 All of the Other People that Use Facebook!!!
+  table
+    thead
+      th email
+      th phone
+      th twitter
+      th facebook
+    tbody
+      each user in users
+        tr
+          td: a(href='/users/#{user.email}')= user.email
+          td= user.phone
+          td= user.twitter
+          td= user.facebook

@@ -1,0 +1,29 @@
+extends ../shared/template
+block content
+  h2= client.email + '\'s Profile'
+  img(src=client.photo)
+  p= client.tagline
+  ul
+    li= 'Phone: ' + client.phone
+    li= 'Facebook: ' + client.facebook
+    li= 'Twitter: ' + client.twitter
+  .row
+    .col-xs-6
+      form(role='form', method='post', action='/message/#{client._id}')
+        .radio
+          label
+            input(type='radio' name='mtype' value='text')
+            span Text
+        .radio
+          label
+            input(type='radio' name='mtype' value='email')
+            span Email
+        .radio
+          label
+            input(type='radio' name='mtype' value='internal')
+            span Internal
+        .form-group
+          label(for='message') Message
+          textarea.form-control#message(name='message')
+        button.btn.btn-success(type='submit') Send Message
+block scripts

@@ -1,0 +1,9 @@
+extends ../shared/template
+block content
+  h2= user.email + '\'s Profile'
+  img(src=user.photo)
+  p= user.tagline
+  ul
+    li= 'Phone: ' + user.phone
+    li= 'Facebook: ' + user.facebook
+    li= 'Twitter: ' + user.twitter
